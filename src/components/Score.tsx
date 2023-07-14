@@ -11,7 +11,7 @@ export default function Score(){
              
             <div className="bg-white py-2.5 px-6 rounded-md mr-4">
                 <p className="text-center text-[#2A46C0] tracking-[0.2em] text-[12px] mb-1 font-semibold lg:text-[14px]">SCORE</p>
-                <p className="text-center text-[#3B4363] text-5xl font-black">12</p>
+                <p className="text-center text-[#3B4363] text-5xl font-barlow1">12</p>
             </div>
         </section>
     )
