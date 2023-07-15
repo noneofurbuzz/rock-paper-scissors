@@ -1,9 +1,19 @@
-import { SettingsContext } from "@/Context/SettingsContext"
+import { useModeContext } from "@/Context/ModeContext"
+import { useSettingsContext } from "@/Context/SettingsContext"
 import { useContext } from "react"
 
 export default function Settings(){
-    const {setShowSettings} = useContext(SettingsContext)
+    const {setShowSettings} = useSettingsContext()
+    const {setGameMode} = useModeContext()
     function handleClick(){
+        setShowSettings(false)
+    }
+    function handleBasicClick(){
+        setGameMode("Basic")
+        setShowSettings(false)
+    }
+    function handleProClick(){
+        setGameMode("Pro")
         setShowSettings(false)
     }
     return(
@@ -21,8 +31,8 @@ export default function Settings(){
         <div className="flex flex-col items-center mx-8 xxs:mx-0 mt-8 ">
         <p className="text-center tracking-[0.2em] text-[rgb(59,67,99)] border-b-2 mb-6 border-[#3b4363]">MODE</p>
         <div className="flex xxs:flex-row flex-col w-full justify-center">
-        <button className="button-reflect border-white border-[1px] text-white tracking-[0.2em] rounded-lg xxs:w-36 w-full py-2 bg-[#141539] hover:ease-in-out hover:scale-[0.955] hover:brightness-125 duration-300 active:ease-in-out active:scale-[0.955] active:brightness-125">BASIC</button>
-        <button className="button-reflect border-white border-[1px] text-white tracking-[0.2em] rounded-lg xxs:w-36 w-full py-2 bg-[#141539] hover:ease-in-out hover:scale-[0.955] hover:brightness-125 duration-300 active:ease-in-out active:scale-[0.955] active:brightness-125">PRO</button>
+        <button onClick={handleBasicClick} className="button-reflect border-white border-[1px] text-white tracking-[0.2em] rounded-lg xxs:w-36 w-full py-2 bg-[#141539] hover:ease-in-out hover:scale-[0.955] hover:brightness-125 duration-300 active:ease-in-out active:scale-[0.955] active:brightness-125">BASIC</button>
+        <button onClick = {handleProClick} className="button-reflect border-white border-[1px] text-white tracking-[0.2em] rounded-lg xxs:w-36 w-full py-2 bg-[#141539] hover:ease-in-out hover:scale-[0.955] hover:brightness-125 duration-300 active:ease-in-out active:scale-[0.955] active:brightness-125">PRO</button>
         </div>
         </div>
     </section>

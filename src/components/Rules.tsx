@@ -1,9 +1,10 @@
-import { RulesContext } from "@/Context/RulesContext"
+import { useModeContext } from "@/Context/ModeContext"
+import { useRulesContext } from "@/Context/RulesContext"
 import Image from "next/image"
-import { useContext } from "react"
-export default function Rules(){
 
-    const {setShowRules} = useContext(RulesContext)
+export default function Rules(){
+    const {gameMode} = useModeContext()
+    const {setShowRules} = useRulesContext()
     function handleClick(){
         setShowRules(false)
     }
@@ -16,11 +17,11 @@ export default function Rules(){
             </button>
         </div>
         <Image 
-        src = "/images/image-rules.svg"
+        src = {gameMode === "Basic" ? "/images/image-rules.svg" : "/images/image-rules-bonus.svg"}
         alt="image-rules"
         width={250}
         height={250}
-        className="self-center vs:w-72 vs:h-64"/>
+        className={`self-center vs:w-72 ${gameMode === "Basic" ? "vs:h-64" : "vs:h-72"}`}/>
         <button onClick={handleClick} className="mx-auto">
         <svg xmlns="http://www.w3.org/2000/svg" className = "self-center s:hidden hover:fill-[#3B4363] fill-[#3b4262] active:fill-[#3b4363] "width="20" height="20"><path fill-rule="evenodd" d="M16.97 0l2.122 2.121-7.425 7.425 7.425 7.425-2.121 2.12-7.425-7.424-7.425 7.425L0 16.97l7.425-7.425L0 2.121 2.121 0l7.425 7.425L16.971 0z" opacity=".25"/></svg>
         </button>

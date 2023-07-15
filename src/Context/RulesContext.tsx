@@ -1,11 +1,23 @@
 "use client"
+import { useState , useContext} from "react"
 import { Dispatch, SetStateAction, createContext } from "react"
 
-export interface ShowType{
+interface ShowType{
     showRules : boolean
     setShowRules : Dispatch<SetStateAction<boolean>>
 }
- export const RulesContext = createContext<ShowType>({
+ const RulesContext = createContext<ShowType>({
     showRules : false,
     setShowRules : () => {}
  });
+
+  export const RulesContextProvider = ({children} : {children : React.ReactNode}) => {
+    const [showRules,setShowRules] = useState(false)
+    return(
+        <RulesContext.Provider value={{showRules,setShowRules}}>
+            {children}
+        </RulesContext.Provider>
+    )
+  }
+ 
+export const useRulesContext = () => useContext(RulesContext)

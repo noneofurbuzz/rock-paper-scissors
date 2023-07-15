@@ -1,5 +1,8 @@
+import { SettingsContextProvider } from '@/Context/SettingsContext'
 import './globals.css'
 import type { Metadata } from 'next'
+import { RulesContextProvider } from '@/Context/RulesContext'
+import { ModeTypeProvider } from '@/Context/ModeContext'
 
 
 export const metadata: Metadata = {
@@ -14,7 +17,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <SettingsContextProvider>
+          <RulesContextProvider>
+            <ModeTypeProvider>
+                {children}
+        </ModeTypeProvider>
+        </RulesContextProvider>
+        </SettingsContextProvider>
+      </body>
     </html>
   )
 }

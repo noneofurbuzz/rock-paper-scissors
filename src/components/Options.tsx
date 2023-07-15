@@ -1,12 +1,10 @@
-import { MouseEventHandler} from "react"
-import { RulesContext } from "@/Context/RulesContext"
-import { useState,useContext } from "react"
-import { SettingsContext } from "@/Context/SettingsContext"
+import { useRulesContext } from "@/Context/RulesContext"
+import { useSettingsContext } from "@/Context/SettingsContext"
 
 
 export default function Options(){
-    const {setShowRules} = useContext(RulesContext)
-    const {setShowSettings} = useContext(SettingsContext)
+    const {setShowRules} = useRulesContext()
+    const {setShowSettings} = useSettingsContext()
     function handleClickRules() {
         setShowRules(prevShow => !prevShow)
     }

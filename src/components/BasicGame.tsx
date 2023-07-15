@@ -1,9 +1,9 @@
 import Image from "next/image"
-export default function Game(){
+export default function BasicGame(){
     return(
         <section className="pt-36 pb-20">
         <Image 
-        src="/images/bg-triangle.svg"
+        src={"/images/bg-triangle.svg"}
         alt="triangle"
         width={200}
         height={200}

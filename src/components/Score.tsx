@@ -1,9 +1,12 @@
+import { useModeContext } from "@/Context/ModeContext"
+import { useContext } from "react"
 import Image from "next/image"
 export default function Score(){
+    const {gameMode} = useModeContext()
     return(
         <section className="flex justify-between border-4 border-[#606E85] w-5/6 lg:w-[52rem] mx-auto items-center py-3 rounded-lg">
             <Image 
-            src = "/images/logo.svg" 
+            src = {gameMode === "Basic" ? "/images/logo.svg" : "/images/logo-bonus.svg"} 
             className="ml-4 lg:w-32" 
             width={95}
             height={95}
