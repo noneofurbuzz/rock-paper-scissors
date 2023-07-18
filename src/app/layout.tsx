@@ -3,7 +3,9 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { RulesContextProvider } from '@/Context/RulesContext'
 import { ModeTypeProvider } from '@/Context/ModeContext'
-
+import Score from '@/components/Score'
+import Options from '@/components/Options'
+import { GameProvider } from '@/Context/GameContext'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,7 +23,9 @@ export default function RootLayout({
         <SettingsContextProvider>
           <RulesContextProvider>
             <ModeTypeProvider>
-                {children}
+              <GameProvider>
+              {children}
+              </GameProvider>
         </ModeTypeProvider>
         </RulesContextProvider>
         </SettingsContextProvider>

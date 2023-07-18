@@ -18,6 +18,7 @@ module.exports = {
       },
       screens:{
         "vs" : "350px",
+        "normal" : "375px",
         "xs": "500px",
         "s" : "550px",
         "xxs" : "400px"
@@ -36,7 +37,8 @@ module.exports = {
         wiggle: 'wiggle 0.2s infinite ease-in-out'
       },
       colors : {
-        "filter" : "hsla(0, 100%, 0%,0.5)"
+        "filter" : "hsla(0, 100%, 0%,0.5)",
+        "filter-1" : "hsla(237, 49%, 15%,0.5)"
       }
 
     },
