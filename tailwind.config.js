@@ -38,7 +38,8 @@ module.exports = {
       },
       colors : {
         "filter" : "hsla(0, 100%, 0%,0.5)",
-        "filter-1" : "hsla(237, 49%, 15%,0.5)"
+        "filter-1" : "hsla(237, 49%, 15%,0.5)",
+        "filter-white" : "hsla(0,0%,100%,0.1)"
       }
 
     },

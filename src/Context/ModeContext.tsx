@@ -13,7 +13,8 @@ const ModeContext = createContext<ModeType>({
 })
 
 export const ModeTypeProvider = ({children} : {children : React.ReactNode}) => {
-    const [gameMode,setGameMode] = useState("Basic")
+    const game_mode = localStorage.getItem("gameState")
+    const [gameMode,setGameMode] = useState(game_mode !== null ? JSON.parse(game_mode) : "Basic")
 
     return(
         <ModeContext.Provider value={{gameMode,setGameMode}}>

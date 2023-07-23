@@ -63,21 +63,43 @@
 
  @-webkit-keyframes fade-in {
   0% {
+    visibility: hidden;
     opacity: 0;
   }
   100% {
+    visibility: visible;
     opacity: 1;
   }
 }
 @keyframes fade-in {
   0% {
+    visibility: hidden;
     opacity: 0;
   }
   100% {
+    visibility: visible;
     opacity: 1;
   }
 }
 .fade-in {
-	-webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 300                                                                                                                                                                                                                                                                                                                                                                                                                                                                        \s both;
+	-webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 3s both;
 	        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 3s both;
+}
+
+
+@keyframes test {
+  0% {
+    box-shadow: none;
+  }
+  100% {
+    box-shadow: 0 0 50px 1px #ffffff;
+  }
+}
+.shadow-1 {
+	-webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both,test 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s both;
+	animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both,test 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s both;
+}
+.shadow-2{
+  -webkit-animation: test 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+	animation: test 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
 }
