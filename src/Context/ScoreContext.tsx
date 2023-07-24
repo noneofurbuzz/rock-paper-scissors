@@ -1,5 +1,6 @@
 "use client"
-import { Dispatch, SetStateAction, createContext,useContext,useState } from "react"
+
+import { Dispatch, SetStateAction, createContext,useContext,useEffect,useState } from "react"
 
 interface ScoreType{
     basicScore:number
@@ -14,10 +15,12 @@ const ScoreContext = createContext<ScoreType>({
     setProScore : () => {},
 })
 export const ScoreProvider = ({children} : {children : React.ReactNode}) => {
-    const storedbasicscore = localStorage.getItem("basic_score")
-    const storedproscore = localStorage.getItem("pro_score")
-    const [basicScore,setBasicScore] = useState(storedbasicscore !== null ? JSON.parse(storedbasicscore) : 0)
-    const [proScore,setProScore] = useState(storedproscore !== null ? JSON.parse(storedproscore) : 0)
+
+    const storedbasicscore = typeof window !== 'undefined' ? localStorage.getItem("basic_score") : undefined
+    const storedproscore = typeof window !== 'undefined' ? localStorage.getItem("pro_score") : undefined
+    const [basicScore,setBasicScore] = useState(storedbasicscore !== null ? JSON.parse(storedbasicscore!) : 0)
+    const [proScore,setProScore] = useState(storedproscore !== null ? JSON.parse(storedproscore!) : 0)
+
     return(
     <ScoreContext.Provider value = {{basicScore,setBasicScore,proScore,setProScore}}>
         {children}
